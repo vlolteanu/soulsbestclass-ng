@@ -165,7 +165,7 @@ int parseInt(const string &str)
 {
 	size_t end;
 	int n = stoi(str, &end);
-	if ((long long)n < (long long)numeric_limits<int>::min() || (unsigned long long)n > (unsigned long long)numeric_limits<int>::max() || end != str.length())
+	if (n < numeric_limits<int>::min() || n > numeric_limits<int>::max() || end != str.length())
 		usage();
 	return n;
 }
