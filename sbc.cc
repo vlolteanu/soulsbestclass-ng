@@ -186,6 +186,11 @@ int parseInt(const string &str)
 	return n;
 }
 
+inline int tabsFor(const string &s)
+{
+	return 4 - (s.length() / 8 + (s.length() % 8 != 0));
+}
+
 int main(int argc, char **argv)
 {
 	if (argc < 2)
@@ -225,7 +230,15 @@ int main(int argc, char **argv)
 	}
 
 	for (const Character &c: results)
-		cout << c.name << " " << c.lvl << endl;
+	{
+		cout << c.name;
+		for (int i = 0; i < tabsFor(c.name); i++)
+			cout << "\t";
+		cout << c.lvl;
+		for (int s: c.stats)
+			cout << "\t" << s;
+		cout << endl;
+	}
 
 	return 0;
 }
