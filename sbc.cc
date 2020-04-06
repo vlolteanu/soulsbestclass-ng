@@ -188,7 +188,7 @@ int parseInt(const string &str)
 
 inline int tabsFor(const string &s)
 {
-	return 4 - (s.length() / 8 + (s.length() % 8 != 0));
+	return 4 - (s.length() / 8);
 }
 
 int main(int argc, char **argv)
