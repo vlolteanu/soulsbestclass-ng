@@ -164,15 +164,26 @@ Character levelUp(const Character &c, vector<int> stats)
 	return ret;
 }
 
-void usage()
+void usage(const Game *game = nullptr)
 {
-	cout << "usage: " << "sbc" << " <game> <stats>" << endl;
-	for (const Game &game: GAMES)
+	if (!game)
 	{
-		cout << "\t" << game.name << ":\t" << game.abbrev;
-		for (const string &stat: game.stats)
+		cout << "usage: " << "sbc" << " <game> <stats>" << endl;
+		for (const Game &game: GAMES)
+		{
+			cout << "\t" << game.name << ":\t" << game.abbrev;
+			for (const string &stat: game.stats)
+				cout << " <" << stat << ">";
+			cout << endl;
+		}
+	}
+	else
+	{
+		cout << "usage: " << "sbc " << game->abbrev << " ";
+		for (const string &stat: game->stats)
 			cout << " <" << stat << ">";
 		cout << endl;
+
 	}
 	exit(EXIT_FAILURE);
 }
@@ -181,8 +192,8 @@ int parseInt(const string &str)
 {
 	size_t end;
 	int n = stoi(str, &end);
-	if (n < numeric_limits<int>::min() || n > numeric_limits<int>::max() || end != str.length())
-		usage();
+	if (n < 0 || n > 99 || end != str.length())
+		throw range_error("");
 	return n;
 }
 
@@ -203,11 +214,18 @@ int main(int argc, char **argv)
 	const Game *game = it->second;
 
 	if (argc != 2 + (int)game->stats.size())
-		usage();
+		usage(game);
 
 	vector<int> desired;
-	for (int i = 0; i < (int)game->stats.size(); i++)
-		desired.push_back(parseInt(argv[2 + i]));
+	try
+	{
+		for (int i = 0; i < (int)game->stats.size(); i++)
+			desired.push_back(parseInt(argv[2 + i]));
+	}
+	catch (range_error &e)
+	{
+		usage(game);
+	}
 
 	vector<Character> candidates;
 	for (const Character &base: game->classes)
