@@ -136,6 +136,22 @@ static const vector<Game> GAMES = {
 			{ "Waste of Skin",	{ 10,		9,		10,		9,		7,		9  },	4  },
 		}
 	},
+	{
+		"Elden Ring", "elden",
+		{			"Vigor",	"Mind",		"Endurance",	"Strength",	"Dexterity",	"Intelligence",	"Faith",	"Arcane" },
+		{
+			{ "Hero",	{ 14,		9,		12,		16,		9,		7,		8,		11 },	7 },
+			{ "Bandit",	{ 10,		11,		10,		9,		13,		9,		8,		14 },	5 },
+			{ "Astrologer",	{ 9,		15,		9,		8,		12,		16,		7,		9  },	6 },
+			{ "Warrior",	{ 11,		12,		11,		10,		16,		10,		8,		9  },	8 },
+			{ "Prisoner",	{ 11,		12,		11,		11,		14,		14,		6,		9  },	9 },
+			{ "Confessor",	{ 10,		13,		10,		12,		12,		9,		14,		9  },	10 },
+			{ "Wretch",	{ 10,		10,		10,		10,		10,		10,		10,		10 },	1 },
+			{ "Vagabond",	{ 15,		10,		11,		14,		13,		9,		9,		7  },	9 },
+			{ "Prophet",	{ 10,		14,		8,		11,		10,		7,		16,		10 },	7 },
+			{ "Samurai",	{ 12,		11,		13,		12,		15,		9,		8,		8  },	9 },
+		}
+	},
 };
 
 static const unordered_map<string_view, const Game *> GAMES_MAP = []()
