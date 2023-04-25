@@ -64,7 +64,7 @@ static const vector<Game> GAMES = {
 		{				"Vitality",	"Intelligence",	"Endurance",	"Strength",	"Dexterity",	"Magic",	"Faith",	"Luck" },
 		{
 			{ "Knight",		{ 10,		11,		11,		14,		10,		10,		11,		 7 },	4 },
-			{ "Priest",		{ 13,		11,		12,		10,		 8,		 8,		13,		 8 },	6 },
+			{ "Priest",		{ 13,		11,		12,		13,		 8,		 8,		13,		 8 },	6 },
 			{ "Thief",		{ 10,		13,		10,		 9,		14,		10,		 8,		15 },	9 },
 			{ "Magician",		{  9,		15,		10,		 9,		11,		15,		 6,		11 },	6 },
 			{ "Temple Knight",	{ 11,		 8,		13,		14,		12,		 6,		13,		 7 },	4 },
